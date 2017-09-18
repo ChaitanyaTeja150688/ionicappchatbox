@@ -1,8 +1,11 @@
-<ion-header>
-    <ion-navbar>
-      <ion-title>Chat Box</ion-title>
-    </ion-navbar>
-  </ion-header>
+ <ion-header>
+      <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Chat Box</ion-title>
+      </ion-navbar>
+    </ion-header>
   <ion-content class="chat-connent">
     <ion-list no-lines>
       <ion-item class="content-background" *ngFor="let message of chatList; let i = index" >
@@ -36,8 +39,9 @@
         </div>
         <div *ngIf="prePopulateType == 'checkBoxList'">
             <ion-list no-lines >
-              <ion-item *ngFor="let item of prePopulateArray; let indx = index;">
-                <label><input type="checkbox" (change)="onCheckBoxSelection($event, item, indx)" />{{item.text}}</label>
+              <ion-item no-lines *ngFor="let item of prePopulateArray; let indx = index;">
+                <ion-label>{{item.text}}</ion-label>
+                <ion-checkbox (click)="onCheckBoxSelection(indx)"></ion-checkbox>
               </ion-item>
             </ion-list>
         </div>

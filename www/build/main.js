@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 137:
+/***/ 138:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,11 +13,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 137;
+webpackEmptyAsyncContext.id = 138;
 
 /***/ }),
 
-/***/ 180:
+/***/ 181:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -30,7 +30,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 180;
+webpackEmptyAsyncContext.id = 181;
 
 /***/ }),
 
@@ -40,7 +40,7 @@ webpackEmptyAsyncContext.id = 180;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chatbox_chatpage__ = __webpack_require__(228);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -67,9 +67,10 @@ HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3>Chat Box</h3>\n\n  <p>\n    To chat with please click here link, So we will be happy to help you. <a (click)="redirectToChatBox()" >Click here</a> will show you the way.\n  </p>\n\n  <button ion-button secondary menuToggle>Toggle Menu</button>\n</ion-content>\n'/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\home\home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object])
 ], HomePage);
 
+var _a;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -80,11 +81,11 @@ HomePage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_api_ai_javascript__ = __webpack_require__(570);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_api_ai_javascript__ = __webpack_require__(252);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -104,7 +105,7 @@ var ChatPage = (function () {
     function ChatPage(navCtrl, _http) {
         this.navCtrl = navCtrl;
         this._http = _http;
-        this.url = 'http://ushydsasahay1:8080';
+        this.url = 'https://pacific-shelf-28291.herokuapp.com';
         this.freeText = '';
         this.chatList = [];
         this.prePopulateArray = [];
@@ -216,9 +217,9 @@ var ChatPage = (function () {
         var date = new Date();
         return date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
     };
-    ChatPage.prototype.onCheckBoxSelection = function (event, item, index) {
+    ChatPage.prototype.onCheckBoxSelection = function (index) {
         var selectedArray = '';
-        this.prePopulateArray[index].checked = event.target.checked;
+        this.prePopulateArray[index].checked = !this.prePopulateArray[index].checked;
         for (var _i = 0, _a = this.prePopulateArray; _i < _a.length; _i++) {
             var key = _a[_i];
             if (key.checked === true) {
@@ -279,22 +280,23 @@ var ChatPage = (function () {
 }());
 ChatPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'chat-page',template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\chatbox\chatpage.html"*/'<ion-header>\n\n    <ion-navbar>\n\n      <ion-title>Chat Box</ion-title>\n\n    </ion-navbar>\n\n  </ion-header>\n\n  <ion-content class="chat-connent">\n\n    <ion-list no-lines>\n\n      <ion-item class="content-background" *ngFor="let message of chatList; let i = index" >\n\n        <div  [ngClass]="{\'last-msg\': i == chatList.length-1}">\n\n          <div class="msj-rta macro" *ngIf="message.sent">\n\n            <div class="text text-r">\n\n              <p>{{ message.text }}</p>\n\n              <p class="align-right"><small>{{ message.time }}</small></p>\n\n            </div>\n\n            <div class="avatar" style="padding:0px 0px 0px 50px !important">\n\n              <img class="img-circle"  src="../../assets/icon/Webp.net-resizeimage.png">\n\n            </div>\n\n          </div>\n\n          <div class="msj macro" *ngIf="!message.sent">\n\n            <div class="avatar">\n\n              <img class="img-circle" src="../../assets/icon/Webp.net-resizeimage.png">\n\n            </div>\n\n            <div class="text text-l">\n\n              <p>{{ message.text }}</p>\n\n              <p style="text-align: right;"><small>{{ message.time }}</small></p>\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </ion-item>\n\n    </ion-list>\n\n    <div *ngIf="isPopulateDataAvaialble" style="margin-bottom: 30px;">\n\n        <div *ngIf="prePopulateType == \'button\'">\n\n          <span *ngFor="let item of prePopulateArray">\n\n            <button class="selection-button" (click)="onSelection($event, item)">{{item.text}}</button>\n\n          </span>\n\n        </div>\n\n        <div *ngIf="prePopulateType == \'checkBoxList\'">\n\n            <ion-list no-lines >\n\n              <ion-item *ngFor="let item of prePopulateArray; let indx = index;">\n\n                <label><input type="checkbox" (change)="onCheckBoxSelection($event, item, indx)" />{{item.text}}</label>\n\n              </ion-item>\n\n            </ion-list>\n\n        </div>\n\n    </div>\n\n    <div class="bottom-div">\n\n      <input class="input-text" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />\n\n      <button class="send-button" (click)="addTextButton()">Send</button>\n\n    </div>\n\n  </ion-content>\n\n  \n\n  '/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\chatbox\chatpage.html"*/
+        selector: 'chat-page',template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\chatbox\chatpage.html"*/' <ion-header>\n\n      <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Chat Box</ion-title>\n\n      </ion-navbar>\n\n    </ion-header>\n\n  <ion-content class="chat-connent">\n\n    <ion-list no-lines>\n\n      <ion-item class="content-background" *ngFor="let message of chatList; let i = index" >\n\n        <div  [ngClass]="{\'last-msg\': i == chatList.length-1}">\n\n          <div class="msj-rta macro" *ngIf="message.sent">\n\n            <div class="text text-r">\n\n              <p>{{ message.text }}</p>\n\n              <p class="align-right"><small>{{ message.time }}</small></p>\n\n            </div>\n\n            <div class="avatar" style="padding:0px 0px 0px 50px !important">\n\n              <img class="img-circle"  src="../../assets/icon/Webp.net-resizeimage.png">\n\n            </div>\n\n          </div>\n\n          <div class="msj macro" *ngIf="!message.sent">\n\n            <div class="avatar">\n\n              <img class="img-circle" src="../../assets/icon/Webp.net-resizeimage.png">\n\n            </div>\n\n            <div class="text text-l">\n\n              <p>{{ message.text }}</p>\n\n              <p style="text-align: right;"><small>{{ message.time }}</small></p>\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </ion-item>\n\n    </ion-list>\n\n    <div *ngIf="isPopulateDataAvaialble" style="margin-bottom: 30px;">\n\n        <div *ngIf="prePopulateType == \'button\'">\n\n          <span *ngFor="let item of prePopulateArray">\n\n            <button class="selection-button" (click)="onSelection($event, item)">{{item.text}}</button>\n\n          </span>\n\n        </div>\n\n        <div *ngIf="prePopulateType == \'checkBoxList\'">\n\n            <ion-list no-lines >\n\n              <ion-item no-lines *ngFor="let item of prePopulateArray; let indx = index;">\n\n                <ion-label>{{item.text}}</ion-label>\n\n                <ion-checkbox (click)="onCheckBoxSelection(indx)"></ion-checkbox>\n\n              </ion-item>\n\n            </ion-list>\n\n        </div>\n\n    </div>\n\n    <div class="bottom-div">\n\n      <input class="input-text" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />\n\n      <button class="send-button" (click)="addTextButton()">Send</button>\n\n    </div>\n\n  </ion-content>\n\n  \n\n  '/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\chatbox\chatpage.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _b || Object])
 ], ChatPage);
 
+var _a, _b;
 //# sourceMappingURL=chatpage.js.map
 
 /***/ }),
 
-/***/ 254:
+/***/ 256:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -344,13 +346,13 @@ var ListPage_1;
 
 /***/ }),
 
-/***/ 255:
+/***/ 257:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(262);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -358,19 +360,19 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 260:
+/***/ 262:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(299);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_chatbox_chatpage__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_list_list__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_list_list__ = __webpack_require__(256);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(221);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(226);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -426,17 +428,17 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 297:
+/***/ 299:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(221);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(256);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -495,5 +497,5 @@ MyApp = __decorate([
 
 /***/ })
 
-},[255]);
+},[257]);
 //# sourceMappingURL=main.js.map

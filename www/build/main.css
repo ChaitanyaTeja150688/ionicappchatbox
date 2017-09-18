@@ -25208,6 +25208,7 @@ ion-navbar.toolbar {
   bottom: 0;
   width: 100%;
   position: fixed;
+  background: #C7C7CC;
 }
 
 .input-text {

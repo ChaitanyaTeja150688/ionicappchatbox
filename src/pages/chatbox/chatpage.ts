@@ -14,7 +14,7 @@ export class ChatPage implements AfterViewChecked, OnInit{
     this.client = new ApiAiClient({ accessToken: 'd03ed97ae4914599ad08c28082341944' });
     
   }
-  url = 'http://ushydsasahay1:8080';
+  url = 'https://pacific-shelf-28291.herokuapp.com';
   client: any;
   freeText: string = '';
   chatList= [];
@@ -134,9 +134,9 @@ export class ChatPage implements AfterViewChecked, OnInit{
     return date.toLocaleString('en-US', { hour: 'numeric',minute:'numeric', hour12: true });
   }
 
-  onCheckBoxSelection(event: any, item, index){
+  onCheckBoxSelection(index){
     let selectedArray = '';
-    this.prePopulateArray[index].checked = event.target.checked;
+    this.prePopulateArray[index].checked = !this.prePopulateArray[index].checked;
     for(let key of this.prePopulateArray){
       if(key.checked === true){
           selectedArray = selectedArray === '' ? key.text : selectedArray + ', ' + key.text;
