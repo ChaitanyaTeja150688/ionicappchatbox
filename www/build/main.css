@@ -25198,3 +25198,141 @@ ion-navbar.toolbar {
     padding-top: calc(16px + 20px);
   }
 }
+
+.chat-connent {
+  background: #e0e0de;
+  border-radius: 5px;
+}
+
+.bottom-div {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+}
+
+.input-text {
+  border-radius: 15px;
+  border: solid 1px #C7C7CC;
+  padding: 5px;
+  width: 80%;
+}
+
+.send-button {
+  border-radius: 15px;
+  font-weight: bold;
+  width: 19%;
+  font-size: 2.2rem;
+  color: black;
+  background: #C7C7CC;
+}
+
+.content-background {
+  background: #e0e0de;
+}
+
+.selection-button {
+  border-radius: 15px;
+  height: 25px;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 8px;
+  background: #116CEE;
+}
+
+.msj-rta {
+  float: right;
+  background: white;
+}
+
+.msj {
+  float: left;
+  background: white;
+}
+
+.macro {
+  margin-top: 5px;
+  min-width: 10%;
+  max-width: 85%;
+  border-radius: 5px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.text-r {
+  float: right;
+  padding-left: 10px;
+}
+
+.text-l {
+  float: left;
+  padding-right: 10px;
+}
+
+.text {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 30%;
+  max-width: 85%;
+  white-space: pre-line;
+}
+
+.text > p:first-of-type {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: auto;
+  line-height: 15px;
+  font-size: 15px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+small {
+  font-size: 75%;
+}
+
+.avatar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  float: left;
+  padding-right: 10px;
+}
+
+.img-circle {
+  float: left;
+  width: 34px;
+  height: 34px;
+  margin: 2px 5px 0px 5px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.align-right {
+  text-align: right;
+}
