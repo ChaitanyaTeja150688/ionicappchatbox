@@ -184,7 +184,7 @@ var ChatPage = (function () {
                     else if (response.result.action == "emailConfirmation") {
                         // let email = ('testusertest1111@gmail.com');
                         var subject = ('Coverage Details');
-                        var body = ('<html><head>Dear</head><p>Below are the details captured from our converstaion, Please reply to us if anything needs to be correted or missing</p>' + _this.createBody() + '<p>We will get back to you soon.</p></html>');
+                        var body = ('<html><head>Good Day</head><p>Below are the details captured from our converstaion, Please reply to us if anything needs to be correted or missing</p>' + _this.createBody() + '<p>We will get back to you soon.</p></html>');
                         var params = {
                             "name": "Marcus Frankbutter",
                             "toEmail": _this.chatList[_this.chatList.length - 2].text,
