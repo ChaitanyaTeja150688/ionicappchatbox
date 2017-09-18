@@ -1,6 +1,6 @@
 {
-  "name": "cutePuppyPics",
-  "app_id": "b979a3b0",
-  "type": "ionic-angular",
-  "integrations": {}
+    "name": "chatBox",
+    "app_id": "57b7d7eb_1",
+    "type": "ionic-angular",
+    "integrations": {}
 }
