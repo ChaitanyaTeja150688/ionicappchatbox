@@ -31,25 +31,32 @@
         </div>
       </ion-item>
     </ion-list>
-    <div *ngIf="isPopulateDataAvaialble" style="margin-bottom: 30px;">
+  </ion-content>
+  <ion-footer>
+      <ion-toolbar *ngIf="isPopulateDataAvaialble">
         <div *ngIf="prePopulateType == 'button'">
           <span *ngFor="let item of prePopulateArray">
             <button class="selection-button" (click)="onSelection($event, item)">{{item.text}}</button>
           </span>
         </div>
         <div *ngIf="prePopulateType == 'checkBoxList'">
-            <ion-list no-lines >
-              <ion-item no-lines *ngFor="let item of prePopulateArray; let indx = index;">
-                <ion-label>{{item.text}}</ion-label>
-                <ion-checkbox (click)="onCheckBoxSelection(indx)"></ion-checkbox>
-              </ion-item>
-            </ion-list>
+          <ion-list no-lines >
+            <ion-item no-lines *ngFor="let item of prePopulateArray; let indx = index;">
+              <ion-label>{{item.text}}</ion-label>
+              <ion-checkbox (click)="onCheckBoxSelection(indx)"></ion-checkbox>
+            </ion-item>
+          </ion-list>
         </div>
-    </div>
-    <div class="bottom-div">
-      <input class="input-text" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />
-      <button class="send-button" (click)="addTextButton()">Send</button>
-    </div>
-  </ion-content>
+      </ion-toolbar>
+      <ion-toolbar>
+        <input class="input-text" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />
+        <ion-buttons end>
+          <button ion-button icon-right color="royal" (click)="addTextButton()">
+            Send
+            <ion-icon name="send"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
   
   

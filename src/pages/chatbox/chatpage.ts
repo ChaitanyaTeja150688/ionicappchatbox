@@ -59,6 +59,12 @@ export class ChatPage implements AfterViewChecked, OnInit{
     return table;
   }
 
+  checkList(data, type) {
+    this.prePopulateType = type;
+    this.isPopulateDataAvaialble = true;
+    this.prePopulateArray = data;
+  }
+
   selectionData = [];
   selectionType = '';
   sendMessage(message){
@@ -72,31 +78,27 @@ export class ChatPage implements AfterViewChecked, OnInit{
       this.freeText = '';
       if(response.result.action){
         if(response.result.action.length > 0){
-          this.isPopulateDataAvaialble = true;
           if (response.result.action == "BusinessName") {
             this.selectionData.push({type:response.result.action, text: response.result.resolvedQuery});
-            this.prePopulateType = 'button';
-            this.prePopulateArray = [{ text: "BAP" }, { text: "BOP" }]
+            let data = [{ text: "BAP" }, { text: "BOP" }];
+            this.checkList(data, 'button');
           }
           else if(response.result.action == "Address"){
-            this.prePopulateType = 'button';
             this.getData(this.url +'/api/getChatMessages').subscribe((data) => {
               if (data) {
                 this.selectionData.push({type:response.result.action, text: response.result.resolvedQuery});
-                this.prePopulateArray = data;
+                this.checkList(data, 'button');
               }
             });
           }
           else if (response.result.action == "Coverages") {
-            this.prePopulateType = 'checkBoxList';
             this.getData(this.url + "/api/getCoverages").subscribe(data => {
-              this.prePopulateArray = data;
+              this.checkList(data, 'checkBoxList');
             });
           }
           else if (response.result.action == "emailConfirmation") {
-            // let email = ('testusertest1111@gmail.com');
             let subject = ('Coverage Details');
-            let body = ('<html><head>Good Day</head><p>Below are the details captured from our converstaion, Please reply to us if anything needs to be correted or missing</p>'+ this.createBody() +'<p>We will get back to you soon.</p></html>');
+            let body = ('<html><head>Good Day! </head><p>Below are the details captured from our converstaion, Please reply to us if anything needs to be correted or missing</p>'+ this.createBody() +'<p>We will get back to you soon.</p></html>');
             let params = {
               "name": "Marcus Frankbutter",
               "toEmail": this.chatList[this.chatList.length-2].text,
@@ -112,8 +114,7 @@ export class ChatPage implements AfterViewChecked, OnInit{
           else if(response.result.action == "Make"){
             this.getData(this.url + "/api/getVehicles").subscribe(data => {
               this.selectionData.push({type:response.result.action, text: response.result.resolvedQuery});
-              this.prePopulateType = 'button';
-              this.prePopulateArray = data;
+              this.checkList(data, 'button');
             });
           }
           else if(response.result.action != 'input.unknown'){
