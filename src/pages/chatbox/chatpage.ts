@@ -72,8 +72,15 @@ export class ChatPage implements AfterViewChecked, OnInit{
     this.prePopulateArray = [];
     this.selectionData.push({type:this.selectionType, text: message});
     this.selectionType = '';
-    this.client.textRequest(message)
+    let checkCorporationStatus = false;
+    if(this.chatList.length >= 2) {
+      if(this.chatList[this.chatList.length-2].text == 'Sure, I will be able to assist you with that. To begin with, can you please provide your business name?') {
+        checkCorporationStatus = true;
+      }
+    }
+    this.client.textRequest(checkCorporationStatus ? message + ' corporation' :  message)
     .then((response) => {
+      checkCorporationStatus = false;
       this.chatList.push({id:this.chatList.length+1, text:response.result.fulfillment.speech,time: this.getTime(), sent:false});
       this.freeText = '';
       if(response.result.action){
