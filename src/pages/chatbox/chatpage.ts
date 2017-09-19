@@ -98,7 +98,7 @@ export class ChatPage implements AfterViewChecked, OnInit{
           }
           else if (response.result.action == "emailConfirmation") {
             let subject = ('Coverage Details');
-            let body = ('<html><head>Good Day! </head><p>Below are the details captured from our converstaion, Please reply to us if anything needs to be correted or missing</p>'+ this.createBody() +'<p>We will get back to you soon.</p></html>');
+            let body = ('<html><head>Good Day! </head><p>Below are the details captured from our conversation, Please reply to us if anything needs to be correted or missing</p>'+ this.createBody() +'<p>We will get back to you soon.</p></html>');
             let params = {
               "name": "Marcus Frankbutter",
               "toEmail": this.chatList[this.chatList.length-2].text,
