@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { ApiAiClient } from "api-ai-javascript";
 
+declare let jsPDF;
+
 @Component({
   selector: 'chat-page',
   templateUrl: 'chatpage.html'
@@ -12,9 +14,10 @@ import { ApiAiClient } from "api-ai-javascript";
 export class ChatPage implements AfterViewChecked, OnInit{
   constructor(public navCtrl: NavController, private _http: Http) {
     this.client = new ApiAiClient({ accessToken: 'd03ed97ae4914599ad08c28082341944' });
-    
   }
+  mandrillObject: any;
   url = 'https://pacific-shelf-28291.herokuapp.com';
+  //url = 'http://ushydmehepatel7:8080';
   client: any;
   freeText: string = '';
   chatList= [];
@@ -23,6 +26,8 @@ export class ChatPage implements AfterViewChecked, OnInit{
   prePopulateType = '';
   ngOnInit(){
     this.sendMessage('Hi');
+    this.getData(this.url + "/api/getVehicles").subscribe(data => { console.log('vehicles'); });
+    this.getData(this.url + "/api/getCoverages").subscribe(data => { console.log('coverages'); });
   }
 
   ngAfterViewChecked() {
@@ -103,16 +108,38 @@ export class ChatPage implements AfterViewChecked, OnInit{
               this.checkList(data, 'checkBoxList');
             });
           }
+          else if (response.result.action == "CoverageSelected") {
+            this.selectionData.push({type:'Coverage selected', text: response.result.resolvedQuery});
+            let data = [{ text: '$ 300'}, { text: '$ 600'},{ text:  '$ 900'}];
+            this.checkList(data, 'radio');
+          }
+          else if (response.result.action == "quoteSelection") {
+            this.selectionData.push({type:'Quoted value', text: response.result.resolvedQuery});
+          }
           else if (response.result.action == "emailConfirmation") {
             let subject = ('Coverage Details');
-            let body = ('<html><head>Good Day! </head><p>Below are the details captured from our conversation, Please reply to us if anything needs to be correted or missing</p>'+ this.createBody() +'<p>We will get back to you soon.</p></html>');
-            let params = {
+            let table = this.createBody();
+            let body = ('<html><head>Good Day! </head><p>Below are the details captured from our conversation, Please reply to us if anything needs to be correted or missing</p>'+ table +'<p>We will get back to you soon.</p></html>');
+            let objectBody = [{
               "name": "Marcus Frankbutter",
               "toEmail": this.chatList[this.chatList.length-2].text,
               "subject": subject,
               "body": body
-            }
-            this.sendEmail(params).subscribe(
+            }]
+            // let doc = new jsPDF();
+            // let elementHandler = {
+            //   '#ignorePDF': function (element, renderer) {
+            //     return true;
+            //   }
+            // };
+            // doc.fromHTML(table,15,15,{
+            //   'width': 180,'elementHandlers': elementHandler
+            // });
+            // let file = doc.output();
+            var doc = new jsPDF("l", "pt", "letter");
+            doc.fromHTML(table, 20, 20);
+            var file = doc.output('blob');
+            this.sendEmail({params : objectBody}, file).subscribe(
               data => {
                 console.log('mail sent');
               }
@@ -142,6 +169,11 @@ export class ChatPage implements AfterViewChecked, OnInit{
     return date.toLocaleString('en-US', { hour: 'numeric',minute:'numeric', hour12: true });
   }
 
+  radioSelected: any;
+  onRadioSelection(item, indx) {
+    this.freeText = this.radioSelected;
+  }
+  
   onCheckBoxSelection(index){
     let selectedArray = '';
     this.prePopulateArray[index].checked = !this.prePopulateArray[index].checked;
@@ -183,9 +215,17 @@ export class ChatPage implements AfterViewChecked, OnInit{
     }
   };
 
-  sendEmail(params): Observable<any> {
-    return this.post([params], 'email', 'sendEmail').map(data => {
-      return data.result;
+  sendEmail(params, file): Observable<any> {
+    let url = this.url + '/api/sendEmail';
+    var fd = new FormData();     // To carry on your data  
+    fd.append('file',file);
+    fd.append('body', JSON.stringify(params));
+    return this._http.post(url, fd)
+    .map((res: Response) => {
+      return res.json();
+    })
+    .catch((error: any) => {
+      return Observable.throw(error.json().error || 'Server error');
     });
   }
 

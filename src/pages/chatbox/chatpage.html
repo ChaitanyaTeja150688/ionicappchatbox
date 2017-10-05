@@ -47,6 +47,14 @@
             </ion-item>
           </ion-list>
         </div>
+        <div *ngIf="prePopulateType == 'radio'">
+          <ion-list radio-group  [(ngModel)]="radioSelected">
+            <ion-item no-lines  *ngFor="let item of prePopulateArray; let indx = index;">
+              <ion-radio value="{{item.text}}" (click)="onRadioSelection(item, indx)"></ion-radio>
+              <ion-label>{{item.text}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
       </ion-toolbar>
       <ion-toolbar>
         <input class="input-text" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />

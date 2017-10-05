@@ -117,6 +117,8 @@ var ChatPage = (function () {
     }
     ChatPage.prototype.ngOnInit = function () {
         this.sendMessage('Hi');
+        this.getData(this.url + "/api/getVehicles").subscribe(function (data) { console.log('vehicles'); });
+        this.getData(this.url + "/api/getCoverages").subscribe(function (data) { console.log('coverages'); });
     };
     ChatPage.prototype.ngAfterViewChecked = function () {
         this.scrollToBottom();
@@ -189,16 +191,38 @@ var ChatPage = (function () {
                             _this.checkList(data, 'checkBoxList');
                         });
                     }
+                    else if (response.result.action == "CoverageSelected") {
+                        _this.selectionData.push({ type: 'Coverage selected', text: response.result.resolvedQuery });
+                        var data = [{ text: '$ 300' }, { text: '$ 600' }, { text: '$ 900' }];
+                        _this.checkList(data, 'radio');
+                    }
+                    else if (response.result.action == "quoteSelection") {
+                        _this.selectionData.push({ type: 'Quoted value', text: response.result.resolvedQuery });
+                    }
                     else if (response.result.action == "emailConfirmation") {
                         var subject = ('Coverage Details');
-                        var body = ('<html><head>Good Day! </head><p>Below are the details captured from our conversation, Please reply to us if anything needs to be correted or missing</p>' + _this.createBody() + '<p>We will get back to you soon.</p></html>');
-                        var params = {
-                            "name": "Marcus Frankbutter",
-                            "toEmail": _this.chatList[_this.chatList.length - 2].text,
-                            "subject": subject,
-                            "body": body
-                        };
-                        _this.sendEmail(params).subscribe(function (data) {
+                        var table = _this.createBody();
+                        var body = ('<html><head>Good Day! </head><p>Below are the details captured from our conversation, Please reply to us if anything needs to be correted or missing</p>' + table + '<p>We will get back to you soon.</p></html>');
+                        var objectBody = [{
+                                "name": "Marcus Frankbutter",
+                                "toEmail": _this.chatList[_this.chatList.length - 2].text,
+                                "subject": subject,
+                                "body": body
+                            }];
+                        // let doc = new jsPDF();
+                        // let elementHandler = {
+                        //   '#ignorePDF': function (element, renderer) {
+                        //     return true;
+                        //   }
+                        // };
+                        // doc.fromHTML(table,15,15,{
+                        //   'width': 180,'elementHandlers': elementHandler
+                        // });
+                        // let file = doc.output();
+                        var doc = new jsPDF("l", "pt", "letter");
+                        doc.fromHTML(table, 20, 20);
+                        var file = doc.output('blob');
+                        _this.sendEmail({ params: objectBody }, file).subscribe(function (data) {
                             console.log('mail sent');
                         });
                     }
@@ -222,6 +246,9 @@ var ChatPage = (function () {
     ChatPage.prototype.getTime = function () {
         var date = new Date();
         return date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+    };
+    ChatPage.prototype.onRadioSelection = function (item, indx) {
+        this.freeText = this.radioSelected;
     };
     ChatPage.prototype.onCheckBoxSelection = function (index) {
         var selectedArray = '';
@@ -265,9 +292,17 @@ var ChatPage = (function () {
         }
     };
     ;
-    ChatPage.prototype.sendEmail = function (params) {
-        return this.post([params], 'email', 'sendEmail').map(function (data) {
-            return data.result;
+    ChatPage.prototype.sendEmail = function (params, file) {
+        var url = this.url + '/api/sendEmail';
+        var fd = new FormData(); // To carry on your data  
+        fd.append('file', file);
+        fd.append('body', JSON.stringify(params));
+        return this._http.post(url, fd)
+            .map(function (res) {
+            return res.json();
+        })
+            .catch(function (error) {
+            return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error.json().error || 'Server error');
         });
     };
     ChatPage.prototype.post = function (data, method, handler) {
@@ -286,7 +321,7 @@ var ChatPage = (function () {
 }());
 ChatPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'chat-page',template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\chatbox\chatpage.html"*/' <ion-header>\n\n      <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Chat Box</ion-title>\n\n      </ion-navbar>\n\n    </ion-header>\n\n  <ion-content class="chat-connent">\n\n    <ion-list no-lines>\n\n      <ion-item class="content-background" *ngFor="let message of chatList; let i = index" >\n\n        <div  [ngClass]="{\'last-msg\': i == chatList.length-1}">\n\n          <div class="msj-rta macro" *ngIf="message.sent">\n\n            <div class="text text-r">\n\n              <p>{{ message.text }}</p>\n\n              <p class="align-right"><small>{{ message.time }}</small></p>\n\n            </div>\n\n            <div class="avatar" style="padding:0px 0px 0px 50px !important">\n\n              <img class="img-circle"  src="../../assets/icon/Webp.net-resizeimage.png">\n\n            </div>\n\n          </div>\n\n          <div class="msj macro" *ngIf="!message.sent">\n\n            <div class="avatar">\n\n              <img class="img-circle" src="../../assets/icon/Webp.net-resizeimage.png">\n\n            </div>\n\n            <div class="text text-l">\n\n              <p>{{ message.text }}</p>\n\n              <p style="text-align: right;"><small>{{ message.time }}</small></p>\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </ion-item>\n\n    </ion-list>\n\n  </ion-content>\n\n  <ion-footer>\n\n      <ion-toolbar *ngIf="isPopulateDataAvaialble">\n\n        <div *ngIf="prePopulateType == \'button\'">\n\n          <span *ngFor="let item of prePopulateArray">\n\n            <button class="selection-button" (click)="onSelection($event, item)">{{item.text}}</button>\n\n          </span>\n\n        </div>\n\n        <div *ngIf="prePopulateType == \'checkBoxList\'">\n\n          <ion-list no-lines >\n\n            <ion-item no-lines *ngFor="let item of prePopulateArray; let indx = index;">\n\n              <ion-label>{{item.text}}</ion-label>\n\n              <ion-checkbox (click)="onCheckBoxSelection(indx)"></ion-checkbox>\n\n            </ion-item>\n\n          </ion-list>\n\n        </div>\n\n      </ion-toolbar>\n\n      <ion-toolbar>\n\n        <input class="input-text" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />\n\n        <ion-buttons end>\n\n          <button ion-button icon-right color="royal" (click)="addTextButton()">\n\n            Send\n\n            <ion-icon name="send"></ion-icon>\n\n          </button>\n\n        </ion-buttons>\n\n      </ion-toolbar>\n\n    </ion-footer>\n\n  \n\n  '/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\chatbox\chatpage.html"*/
+        selector: 'chat-page',template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\chatbox\chatpage.html"*/' <ion-header>\n\n      <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Chat Box</ion-title>\n\n      </ion-navbar>\n\n    </ion-header>\n\n  <ion-content class="chat-connent">\n\n    <ion-list no-lines>\n\n      <ion-item class="content-background" *ngFor="let message of chatList; let i = index" >\n\n        <div  [ngClass]="{\'last-msg\': i == chatList.length-1}">\n\n          <div class="msj-rta macro" *ngIf="message.sent">\n\n            <div class="text text-r">\n\n              <p>{{ message.text }}</p>\n\n              <p class="align-right"><small>{{ message.time }}</small></p>\n\n            </div>\n\n            <div class="avatar" style="padding:0px 0px 0px 50px !important">\n\n              <img class="img-circle"  src="../../assets/icon/Webp.net-resizeimage.png">\n\n            </div>\n\n          </div>\n\n          <div class="msj macro" *ngIf="!message.sent">\n\n            <div class="avatar">\n\n              <img class="img-circle" src="../../assets/icon/Webp.net-resizeimage.png">\n\n            </div>\n\n            <div class="text text-l">\n\n              <p>{{ message.text }}</p>\n\n              <p style="text-align: right;"><small>{{ message.time }}</small></p>\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </ion-item>\n\n    </ion-list>\n\n  </ion-content>\n\n  <ion-footer>\n\n      <ion-toolbar *ngIf="isPopulateDataAvaialble">\n\n        <div *ngIf="prePopulateType == \'button\'">\n\n          <span *ngFor="let item of prePopulateArray">\n\n            <button class="selection-button" (click)="onSelection($event, item)">{{item.text}}</button>\n\n          </span>\n\n        </div>\n\n        <div *ngIf="prePopulateType == \'checkBoxList\'">\n\n          <ion-list no-lines >\n\n            <ion-item no-lines *ngFor="let item of prePopulateArray; let indx = index;">\n\n              <ion-label>{{item.text}}</ion-label>\n\n              <ion-checkbox (click)="onCheckBoxSelection(indx)"></ion-checkbox>\n\n            </ion-item>\n\n          </ion-list>\n\n        </div>\n\n        <div *ngIf="prePopulateType == \'radio\'">\n\n          <ion-list radio-group  [(ngModel)]="radioSelected">\n\n            <ion-item no-lines  *ngFor="let item of prePopulateArray; let indx = index;">\n\n              <ion-radio value="{{item.text}}" (click)="onRadioSelection(item, indx)"></ion-radio>\n\n              <ion-label>{{item.text}}</ion-label>\n\n            </ion-item>\n\n          </ion-list>\n\n        </div>\n\n      </ion-toolbar>\n\n      <ion-toolbar>\n\n        <input class="input-text" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />\n\n        <ion-buttons end>\n\n          <button ion-button icon-right color="royal" (click)="addTextButton()">\n\n            Send\n\n            <ion-icon name="send"></ion-icon>\n\n          </button>\n\n        </ion-buttons>\n\n      </ion-toolbar>\n\n    </ion-footer>\n\n  \n\n  '/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\chatbox\chatpage.html"*/
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _b || Object])
 ], ChatPage);
