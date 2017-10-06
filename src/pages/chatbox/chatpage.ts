@@ -83,7 +83,9 @@ export class ChatPage implements AfterViewChecked, OnInit{
           }item.text
         }
         else if(item.type === 'Quoted value'){
-          table = table + '<tr><td style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;">Covergaed Quote Value</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;background: #EEEEEE;padding-left: 5%;">'+ item.text +'</td></tr><tr><td  style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;">TAX 25%</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;padding-left: 5%;">$1,300.00</td></tr><tr><td style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;">GRAND TOTAL</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;background: #EEEEEE;padding-left: 5%;">$6,500.00</td></tr>';
+          let quoteOffereed = item.text === "$3000" ? '$150' : (item.text === "$5000" ? '$250' : '$450');
+          let total = item.text === "$3000" ? '$3150' : (item.text === "$5000" ? '$5250' : '$9450');
+          table = table + '<tr><td style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;">Covergaed Quote Value</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;background: #EEEEEE;padding-left: 5%;">'+ item.text +'</td></tr><tr><td  style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;">TAX 5%</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;padding-left: 5%;">' + quoteOffereed + '</td></tr><tr><td style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;">GRAND TOTAL</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;background: #EEEEEE;padding-left: 5%;">'+ total +'</td></tr>';
         }
         index++;
       }
@@ -136,8 +138,9 @@ export class ChatPage implements AfterViewChecked, OnInit{
             });
           }
           else if (response.result.action == "CoverageSelected") {
+            this.radioSelected = '';
             this.selectionData.push({type:'Coverage selected', text: response.result.resolvedQuery});
-            let data = [{ text: '$ 300'}, { text: '$ 600'},{ text:  '$ 900'}];
+            let data = [{ text: '$ 3000'}, { text: '$ 5000'},{ text:  '$ 9000'}];
             this.checkList(data, 'radio');
           }
           else if (response.result.action == "quoteSelection") {
