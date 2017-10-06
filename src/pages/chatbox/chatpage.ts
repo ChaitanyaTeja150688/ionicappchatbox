@@ -64,6 +64,33 @@ export class ChatPage implements AfterViewChecked, OnInit{
     return table;
   }
 
+  isEven(n) {
+    n = Number(n);
+    return n === 0 || !!(n && !(n%2));
+  }
+
+  createEmailBody(){
+    let table = ''
+    let index = 0;
+    for(let item of this.selectionData){
+      if(item.type){
+        if(item.type != 'Quoted value'){
+          if(!this.isEven(index+1)){
+            table = table + '<tr><td style="text-align: left;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;padding-left: 10px;width: 20%;">' + item.type + '</td><td style="text-align: left;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;padding-left: 10px;width: 60%;">' + item.text + '</td></tr>';
+          }
+          else{
+            table = table + '<tr><td style="text-align: left;font-size: 1.2em;line-height: 3.4em;padding-left: 10px;width: 20%;">' + item.type + '</td><td style="text-align: left;font-size: 1.2em;line-height: 3.4em;padding-left: 10px;width: 60%;">' + item.text + '</td></tr>';
+          }item.text
+        }
+        else if(item.type === 'Quoted value'){
+          table = table + '<tr><td style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;">Covergaed Quote Value</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;background: #EEEEEE;padding-left: 5%;">'+ item.text +'</td></tr><tr><td  style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;">TAX 25%</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;padding-left: 5%;">$1,300.00</td></tr><tr><td style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;">GRAND TOTAL</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;background: #EEEEEE;padding-left: 5%;">$6,500.00</td></tr>';
+        }
+        index++;
+      }
+    }
+    return table;
+  }
+
   checkList(data, type) {
     this.prePopulateType = type;
     this.isPopulateDataAvaialble = true;
@@ -119,6 +146,14 @@ export class ChatPage implements AfterViewChecked, OnInit{
           else if (response.result.action == "emailConfirmation") {
             let subject = ('Coverage Details');
             let table = this.createBody();
+            let table1 = this.createEmailBody();
+            let xyz = '<body style="border: 1px soild grey;width:100%;height:100%;overflow-y: auto; padding-left: 5%;padding-right: 5%;padding-top: 2%;"><h1 style="width:100%;background:blue;color:white;display: table;clear: both; text-align:center;font-family: Junge;font-size: 2.4em;line-height: 1.4em;font-weight: normal;text-align: center;"> Insurance Coverage Details</h1><p style="padding-left:20px;">Good Day! </p><p style="padding-left:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We are glad to help you in quoting your policy. </p>' +
+              '<p style="padding-left:20px;">Below are the details captured from our conversation, Please reply to us if anything needs to be correted or missing.</p><table style="margin-left:10%;width: 80%;margin-bottom: 30px;"><thead><tr><th style="text-align: left;padding: 5px 20px;color: #5D6975;border-bottom: 1px solid #C1CED9;white-space: nowrap; font-weight: normal;line-height: 1.4em;font-size: 1.6em">Classification</th><th style="text-align: left;padding: 5px 20px;color: #5D6975;border-bottom: 1px solid #C1CED9;white-space: nowrap; font-weight: normal;line-height: 1.4em;font-size: 1.6em">Values</th>' +
+              '</tr></thead><tbody>' + table1 + '</tbody></table><p>Please contact our team on below address or else you contact through email/phone on below details.</p>' +
+              '<div id="details" style="display: table;clear: both;"><div style="float: left;"><div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Company Name:   </span>Insurance Company</div><br/>' +
+              '<div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Address:   </span>455 Foggy Heights, AZ 85004, US</div><br/><div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Phone:   </span>(602) 111-0000</div><br/><div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Email:   </span> <a href="mailto:john@example.com">company@example.com</a></div><br/>' +
+              '</div></div><div id="notices"><div>NOTICE:</div><div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div></div></body>';
+              
             let body = ('<html><head>Good Day! </head><p>Below are the details captured from our conversation, Please reply to us if anything needs to be correted or missing</p>'+ table +'<p>We will get back to you soon.</p></html>');
             let objectBody = [{
               "name": "Marcus Frankbutter",
@@ -137,7 +172,7 @@ export class ChatPage implements AfterViewChecked, OnInit{
             // });
             // let file = doc.output();
             var doc = new jsPDF("l", "pt", "letter");
-            doc.fromHTML(table, 20, 20);
+            doc.fromHTML(xyz, 20, 20);
             var file = doc.output('blob');
             this.sendEmail({params : objectBody}, file).subscribe(
               data => {

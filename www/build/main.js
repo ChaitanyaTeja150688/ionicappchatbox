@@ -41,7 +41,7 @@ webpackEmptyAsyncContext.id = 180;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chatbox_chatpage__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chatbox_chatpage__ = __webpack_require__(304);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -67,9 +67,10 @@ HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3>Chat Box</h3>\n\n  <p>\n    To chat with please click here link, So we will be happy to help you. <a (click)="redirectToChatBox()" >Click here</a> will show you the way.\n  </p>\n\n  <button ion-button secondary menuToggle>Toggle Menu</button>\n</ion-content>\n'/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\home\home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object])
 ], HomePage);
 
+var _a;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -78,13 +79,252 @@ HomePage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PDFPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var PDFPage = (function () {
+    function PDFPage() {
+    }
+    return PDFPage;
+}());
+PDFPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'pdf-page',template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\pdf\pdf.html"*/'<body style="border: 1px soild grey;width:100%;height:100%;overflow-y: auto; padding-left: 5%;padding-right: 5%;padding-top: 2%;">\n\n    <h1 style="width:100%;background:blue;color:white;display: table;clear: both; text-align:center;font-family: Junge;font-size: 2.4em;line-height: 1.4em;font-weight: normal;text-align: center;"> Insurance Coverage Details</h1>\n\n    <p style="padding-left:20px;">Good Day! </p>\n\n    <p style="padding-left:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad We are glad. </p>\n\n    <p style="padding-left:20px;">Below are the details captured from our conversation, Please reply to us if anything needs to be correted or missing.</p>\n\n    <table style="margin-left:10%;width: 80%;margin-bottom: 30px;">\n\n        <thead>\n\n            <tr>\n\n                <th style="text-align: left;padding: 5px 20px;color: #5D6975;border-bottom: 1px solid #C1CED9;white-space: nowrap; font-weight: normal;line-height: 1.4em;font-size: 1.6em">Classification</th>\n\n                <th style="text-align: left;padding: 5px 20px;color: #5D6975;border-bottom: 1px solid #C1CED9;white-space: nowrap; font-weight: normal;line-height: 1.4em;font-size: 1.6em">Values</th>\n\n            </tr>\n\n        </thead>\n\n        <tbody>\n\n            <tr>\n\n                <td style="text-align: left;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;padding-left: 10px;width: 20%;">BusinessName</td>\n\n                <td style="text-align: left;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;padding-left: 10px;width: 60%;">del corporation</td>\n\n            </tr>\n\n            <tr>\n\n                <td style="text-align: left;font-size: 1.2em;line-height: 3.4em;padding-left: 10px;width: 20%;">LobSelection</td>\n\n                <td style="text-align: left;font-size: 1.2em;line-height: 3.4em;padding-left: 10px;width: 60%;">BAP</td>\n\n            </tr>\n\n            <tr>\n\n                <td style="text-align: left;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;padding-left: 10px;width: 20%;">Coverage selected</td>\n\n                <td style="text-align: left;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;padding-left: 10px;width: 60%;">Liability Coverage</td>\n\n            </tr>\n\n            <tr>\n\n                <td style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;">Covergaed Quote Value</td>\n\n                <td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;background: #EEEEEE;padding-left: 5%;">$ 900</td>\n\n            </tr>\n\n            <tr><td  style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;">TAX 25%</td>\n\n                <td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;padding-left: 5%;">$1,300.00</td>\n\n            </tr>\n\n            <tr>\n\n                <td style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;">GRAND TOTAL</td>\n\n                <td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;background: #EEEEEE;padding-left: 5%;">$6,500.00</td>\n\n            </tr>\n\n        </tbody>\n\n    </table><p>Please contact our team on below address or else you contact through email/phone on below details.</p><div id="details" style="display: table;clear: both;"><div style="float: left;"><div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Company Name:   </span>Insurance Company</div><br/><div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Address:   </span>455 Foggy Heights, AZ 85004, US</div><br/><div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Phone:   </span>(602) 111-0000</div><br/><div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Email:   </span> <a href="mailto:john@example.com">company@example.com</a></div><br/></div></div><div id="notices"><div>NOTICE:</div><div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div></div></body>'/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\pdf\pdf.html"*/
+    })
+], PDFPage);
+
+//# sourceMappingURL=pdf.js.map
+
+/***/ }),
+
+/***/ 229:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(43);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ListPage = ListPage_1 = (function () {
+    function ListPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        // If we navigated to this page, we will have an item available as a nav param
+        this.selectedItem = navParams.get('item');
+        // Let's populate this page with some filler content for funzies
+        this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
+            'american-football', 'boat', 'bluetooth', 'build'];
+        this.items = [];
+        for (var i = 1; i < 11; i++) {
+            this.items.push({
+                title: 'Item ' + i,
+                note: 'This is item #' + i,
+                icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+            });
+        }
+    }
+    ListPage.prototype.itemTapped = function (event, item) {
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(ListPage_1, {
+            item: item
+        });
+    };
+    return ListPage;
+}());
+ListPage = ListPage_1 = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-list',template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\list\list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\list\list.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+], ListPage);
+
+var ListPage_1;
+//# sourceMappingURL=list.js.map
+
+/***/ }),
+
+/***/ 255:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(260);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 260:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_chatbox_chatpage__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_list_list__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_pdf_pdf__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(226);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = (function () {
+    function AppModule() {
+    }
+    return AppModule;
+}());
+AppModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
+            __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_chatbox_chatpage__["a" /* ChatPage */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_list_list__["a" /* ListPage */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_pdf_pdf__["a" /* PDFPage */]
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */]),
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */]
+        ],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
+        entryComponents: [
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
+            __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_chatbox_chatpage__["a" /* ChatPage */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_list_list__["a" /* ListPage */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_pdf_pdf__["a" /* PDFPage */]
+        ],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */],
+            { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] }
+        ]
+    })
+], AppModule);
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 297:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(229);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var MyApp = (function () {
+    function MyApp(platform, statusBar, splashScreen) {
+        this.platform = platform;
+        this.statusBar = statusBar;
+        this.splashScreen = splashScreen;
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
+        this.initializeApp();
+        // used for an example of ngFor and navigation
+        this.pages = [
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] },
+            { title: 'List', component: __WEBPACK_IMPORTED_MODULE_5__pages_list_list__["a" /* ListPage */] }
+        ];
+    }
+    MyApp.prototype.initializeApp = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            _this.statusBar.styleDefault();
+            _this.splashScreen.hide();
+        });
+    };
+    MyApp.prototype.openPage = function (page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
+    };
+    return MyApp;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */])
+], MyApp.prototype, "nav", void 0);
+MyApp = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\app\app.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+], MyApp);
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 304:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(305);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_api_ai_javascript__ = __webpack_require__(570);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_api_ai_javascript__ = __webpack_require__(571);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -149,6 +389,33 @@ var ChatPage = (function () {
         table = table + '</table>';
         return table;
     };
+    ChatPage.prototype.isEven = function (n) {
+        n = Number(n);
+        return n === 0 || !!(n && !(n % 2));
+    };
+    ChatPage.prototype.createEmailBody = function () {
+        var table = '';
+        var index = 0;
+        for (var _i = 0, _a = this.selectionData; _i < _a.length; _i++) {
+            var item = _a[_i];
+            if (item.type) {
+                if (item.type != 'Quoted value') {
+                    if (!this.isEven(index + 1)) {
+                        table = table + '<tr><td style="text-align: left;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;padding-left: 10px;width: 20%;">' + item.type + '</td><td style="text-align: left;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;padding-left: 10px;width: 60%;">' + item.text + '</td></tr>';
+                    }
+                    else {
+                        table = table + '<tr><td style="text-align: left;font-size: 1.2em;line-height: 3.4em;padding-left: 10px;width: 20%;">' + item.type + '</td><td style="text-align: left;font-size: 1.2em;line-height: 3.4em;padding-left: 10px;width: 60%;">' + item.text + '</td></tr>';
+                    }
+                    item.text;
+                }
+                else if (item.type === 'Quoted value') {
+                    table = table + '<tr><td style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;">Covergaed Quote Value</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;background: #EEEEEE;padding-left: 5%;">' + item.text + '</td></tr><tr><td  style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;">TAX 25%</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;padding-left: 5%;">$1,300.00</td></tr><tr><td style="padding-left: 10px;text-align:left;border-top: 1px solid #C1CED9;border-top: 1px solid #C1CED9;font-size: 1.2em;line-height: 3.4em;background: #EEEEEE;">GRAND TOTAL</td><td style="text-align: left;border-top: 1px solid #C1CED9;font-size: 1.2em;border-top: 1px solid #C1CED9;line-height: 3.4em;background: #EEEEEE;padding-left: 5%;">$6,500.00</td></tr>';
+                }
+                index++;
+            }
+        }
+        return table;
+    };
     ChatPage.prototype.checkList = function (data, type) {
         this.prePopulateType = type;
         this.isPopulateDataAvaialble = true;
@@ -202,6 +469,13 @@ var ChatPage = (function () {
                     else if (response.result.action == "emailConfirmation") {
                         var subject = ('Coverage Details');
                         var table = _this.createBody();
+                        var table1 = _this.createEmailBody();
+                        var xyz = '<body style="border: 1px soild grey;width:100%;height:100%;overflow-y: auto; padding-left: 5%;padding-right: 5%;padding-top: 2%;"><h1 style="width:100%;background:blue;color:white;display: table;clear: both; text-align:center;font-family: Junge;font-size: 2.4em;line-height: 1.4em;font-weight: normal;text-align: center;"> Insurance Coverage Details</h1><p style="padding-left:20px;">Good Day! </p><p style="padding-left:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We are glad to help you in quoting your policy. </p>' +
+                            '<p style="padding-left:20px;">Below are the details captured from our conversation, Please reply to us if anything needs to be correted or missing.</p><table style="margin-left:10%;width: 80%;margin-bottom: 30px;"><thead><tr><th style="text-align: left;padding: 5px 20px;color: #5D6975;border-bottom: 1px solid #C1CED9;white-space: nowrap; font-weight: normal;line-height: 1.4em;font-size: 1.6em">Classification</th><th style="text-align: left;padding: 5px 20px;color: #5D6975;border-bottom: 1px solid #C1CED9;white-space: nowrap; font-weight: normal;line-height: 1.4em;font-size: 1.6em">Values</th>' +
+                            '</tr></thead><tbody>' + table1 + '</tbody></table><p>Please contact our team on below address or else you contact through email/phone on below details.</p>' +
+                            '<div id="details" style="display: table;clear: both;"><div style="float: left;"><div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Company Name:   </span>Insurance Company</div><br/>' +
+                            '<div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Address:   </span>455 Foggy Heights, AZ 85004, US</div><br/><div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Phone:   </span>(602) 111-0000</div><br/><div style="padding-right: 10px;height: 30px;display: inline-block;text-align: center;line-height: 30px;vertical-align: middle;"><span>Email:   </span> <a href="mailto:john@example.com">company@example.com</a></div><br/>' +
+                            '</div></div><div id="notices"><div>NOTICE:</div><div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div></div></body>';
                         var body = ('<html><head>Good Day! </head><p>Below are the details captured from our conversation, Please reply to us if anything needs to be correted or missing</p>' + table + '<p>We will get back to you soon.</p></html>');
                         var objectBody = [{
                                 "name": "Marcus Frankbutter",
@@ -220,7 +494,7 @@ var ChatPage = (function () {
                         // });
                         // let file = doc.output();
                         var doc = new jsPDF("l", "pt", "letter");
-                        doc.fromHTML(table, 20, 20);
+                        doc.fromHTML(xyz, 20, 20);
                         var file = doc.output('blob');
                         _this.sendEmail({ params: objectBody }, file).subscribe(function (data) {
                             console.log('mail sent');
@@ -328,213 +602,6 @@ ChatPage = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=chatpage.js.map
-
-/***/ }),
-
-/***/ 254:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(43);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ListPage = ListPage_1 = (function () {
-    function ListPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        // If we navigated to this page, we will have an item available as a nav param
-        this.selectedItem = navParams.get('item');
-        // Let's populate this page with some filler content for funzies
-        this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-            'american-football', 'boat', 'bluetooth', 'build'];
-        this.items = [];
-        for (var i = 1; i < 11; i++) {
-            this.items.push({
-                title: 'Item ' + i,
-                note: 'This is item #' + i,
-                icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-            });
-        }
-    }
-    ListPage.prototype.itemTapped = function (event, item) {
-        // That's right, we're pushing to ourselves!
-        this.navCtrl.push(ListPage_1, {
-            item: item
-        });
-    };
-    return ListPage;
-}());
-ListPage = ListPage_1 = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\list\list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\pages\list\list.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
-], ListPage);
-
-var ListPage_1;
-//# sourceMappingURL=list.js.map
-
-/***/ }),
-
-/***/ 255:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(260);
-
-
-Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
-
-/***/ }),
-
-/***/ 260:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_chatbox_chatpage__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_list_list__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(226);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-var AppModule = (function () {
-    function AppModule() {
-    }
-    return AppModule;
-}());
-AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
-            __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_chatbox_chatpage__["a" /* ChatPage */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_list_list__["a" /* ListPage */]
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */]),
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */]
-        ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
-        entryComponents: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
-            __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_chatbox_chatpage__["a" /* ChatPage */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_list_list__["a" /* ListPage */]
-        ],
-        providers: [
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
-            { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] }
-        ]
-    })
-], AppModule);
-
-//# sourceMappingURL=app.module.js.map
-
-/***/ }),
-
-/***/ 297:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(254);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var MyApp = (function () {
-    function MyApp(platform, statusBar, splashScreen) {
-        this.platform = platform;
-        this.statusBar = statusBar;
-        this.splashScreen = splashScreen;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
-        this.initializeApp();
-        // used for an example of ngFor and navigation
-        this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] },
-            { title: 'List', component: __WEBPACK_IMPORTED_MODULE_5__pages_list_list__["a" /* ListPage */] }
-        ];
-    }
-    MyApp.prototype.initializeApp = function () {
-        var _this = this;
-        this.platform.ready().then(function () {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            _this.statusBar.styleDefault();
-            _this.splashScreen.hide();
-        });
-    };
-    MyApp.prototype.openPage = function (page) {
-        // Reset the content nav to have just this page
-        // we wouldn't want the back button to show in this scenario
-        this.nav.setRoot(page.component);
-    };
-    return MyApp;
-}());
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */])
-], MyApp.prototype, "nav", void 0);
-MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\MyDrive\finalapp\ionicappchatbox\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\MyDrive\finalapp\ionicappchatbox\src\app\app.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
-], MyApp);
-
-//# sourceMappingURL=app.component.js.map
 
 /***/ })
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ChatPage } from '../chatbox/chatpage';
+import { PDFPage } from '../pdf/pdf';
 
 @Component({
   selector: 'page-home',
