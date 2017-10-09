@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 //import { email } from "emailjs/email";
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { ApiAiClient } from "api-ai-javascript";
+import { SpeechRecognitionService } from './speechservice';
 
 declare let jsPDF;
 
@@ -12,8 +13,9 @@ declare let jsPDF;
   templateUrl: 'chatpage.html'
 })
 export class ChatPage implements AfterViewChecked, OnInit{
-  constructor(public navCtrl: NavController, private _http: Http) {
+  constructor(public navCtrl: NavController, private _http: Http, private speechRecognitionService: SpeechRecognitionService) {
     this.client = new ApiAiClient({ accessToken: 'd03ed97ae4914599ad08c28082341944' });
+    this.showSearchButton = true;
   }
   mandrillObject: any;
   url = 'https://pacific-shelf-28291.herokuapp.com';
@@ -24,6 +26,7 @@ export class ChatPage implements AfterViewChecked, OnInit{
   prePopulateArray = [];
   isPopulateDataAvaialble = false;
   prePopulateType = '';
+  showSearchButton: boolean;
   ngOnInit(){
     this.sendMessage('Hi');
     this.getData(this.url + "/api/getVehicles").subscribe(data => { console.log('vehicles'); });
@@ -33,6 +36,36 @@ export class ChatPage implements AfterViewChecked, OnInit{
   ngAfterViewChecked() {
     this.scrollToBottom();
   }
+
+  ngOnDestroy() {
+    this.speechRecognitionService.DestroySpeechObject();
+  }
+
+  activateSpeechSearchMovie(): void {
+    this.showSearchButton = false;
+
+    this.speechRecognitionService.record()
+        .subscribe(
+        //listener
+        (value) => {
+            this.freeText = value;
+            console.log(value);
+        },
+        //errror
+        (err) => {
+            console.log(err);
+            if (err.error == "no-speech") {
+                console.log("--restatring service--");
+                this.activateSpeechSearchMovie();
+            }
+        },
+        //completion
+        () => {
+            this.showSearchButton = true;
+            console.log("--complete--");
+            this.activateSpeechSearchMovie();
+        });
+}
 
   addText($event){
     if($event.keyCode=="13"){
@@ -279,4 +312,116 @@ export class ChatPage implements AfterViewChecked, OnInit{
         return Observable.throw(error.json().error || 'Server error');
       });
   }
+
+//   upgrade() {
+//     //start_button.style.visibility = 'hidden';
+//     //showInfo('info_upgrade');
+//   }
+//   final_transcript = '';
+//   recognizing = false;
+//   ignore_onend;
+//   start_timestamp;
+//   recognition: any;
+//   checkWindow () {
+//   let windowCheck = 'webkitSpeechRecognition' in window;
+//   if (!windowCheck) {
+//     // upgrade();
+//   } else {
+//     //start_button.style.display = 'inline-block';
+//     this.recognition = new webkitSpeechRecognition();
+//     this.recognition.continuous = true;
+//     this.recognition.interimResults = true;
+//     this.recognition.onstart = function() {
+//       this.recognizing = true;
+//       //this.showInfo('info_speak_now');
+//       //start_img.src = 'mic-animate.gif';
+//     };
+//     // recognition.onerror = function(event) {
+//     //   if (event.error == 'no-speech') {
+//     //     start_img.src = 'mic.gif';
+//     //     this.showInfo('info_no_speech');
+//     //     ignore_onend = true;
+//     //   }
+//     //   if (event.error == 'audio-capture') {
+//     //     start_img.src = 'mic.gif';
+//     //     this.showInfo('info_no_microphone');
+//     //     ignore_onend = true;
+//     //   }
+//     //   if (event.error == 'not-allowed') {
+//     //     if (event.timeStamp - start_timestamp < 100) {
+//     //       this.showInfo('info_blocked');
+//     //     } else {
+//     //       this.showInfo('info_denied');
+//     //     }
+//     //     ignore_onend = true;
+//     //   }
+//     // };
+//     this.recognition.onend = function() {
+//       this.recognizing = false;
+//       if (this.ignore_onend) {
+//         return;
+//       }
+//       //start_img.src = 'mic.gif';
+//       if (!this.final_transcript) {
+//         this.showInfo('info_start');
+//         return;
+//       }
+//       this.showInfo('');
+//       if (window.getSelection) {
+//         window.getSelection().removeAllRanges();
+//         var range = document.createRange();
+//         range.selectNode(document.getElementById('final_span'));
+//         window.getSelection().addRange(range);
+//       }
+//     };
+//     this.recognition.onresult = function(event) {
+//       var interim_transcript = '';
+//       for (var i = event.resultIndex; i < event.results.length; ++i) {
+//         if (event.results[i].isFinal) {
+//           this.final_transcript += event.results[i][0].transcript;
+//         } else {
+//           interim_transcript += event.results[i][0].transcript;
+//         }
+//       }
+//       //this.final_transcript = capitalize(this.final_transcript);
+//       //final_span.innerHTML = linebreak(this.final_transcript);
+//       //interim_span.innerHTML = linebreak(interim_transcript);
+//       if (this.final_transcript || interim_transcript) {
+//         //showButtons('inline-block');
+//       }
+//     };
+//   }
+// }
+
+// showInfo(s) {
+// //   if (s) {
+// //     for (var child = info.firstChild; child; child = child.nextSibling) {
+// //       if (child.style) {
+// //         child.style.display = child.id == s ? 'inline' : 'none';
+// //       }
+// //     }
+// //     info.style.visibility = 'visible';
+// //   } else {
+// //     info.style.visibility = 'hidden';
+// //   }
+//  }
+
+//  startButton(event) {
+//   if (this.recognizing) {
+//     this.recognition.stop();
+//     return;
+//   }
+//   this.final_transcript = '';
+//   this.recognition.lang = 'English';
+//   this.recognition.start();
+//   this.ignore_onend = false;
+// //  final_span.innerHTML = '';
+//   //interim_span.innerHTML = '';
+//   //start_img.src = 'mic-slash.gif';
+//   this.showInfo('info_allow');
+//   //this.showButtons('none');
+//   //start_timestamp = event.timeStamp;
+// }
+
+
 }

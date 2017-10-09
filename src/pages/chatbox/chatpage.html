@@ -63,6 +63,14 @@
             Send
             <ion-icon name="send"></ion-icon>
           </button>
+          <!-- <button class="btn btn-info btn-fill btn-wd" name="btnActivateSpeechSearchMovie" id="btnActivateSpeechSearchMovie" (click)="activateSpeechSearchMovie()"
+          [disabled]="!showSearchButton">
+            Enable Speech Search
+          </button> -->
+          <button id="start_button" [disabled]="!showSearchButton" (click)="activateSpeechSearchMovie()" style="display: inline-block;">
+            <img alt="Start" id="start_img" *ngIf="!showSearchButton" src="https://www.google.com/intl/en/chrome/assets/common/images/content/mic-animate.gif">
+            <img alt="Start" id="start_img" *ngIf="showSearchButton" src="https://www.google.com/intl/en/chrome/assets/common/images/content/mic.gif">
+          </button>
         </ion-buttons>
       </ion-toolbar>
     </ion-footer>

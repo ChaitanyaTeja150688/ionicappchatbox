@@ -11,6 +11,7 @@ import { PDFPage } from '../pages/pdf/pdf';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SpeechRecognitionService } from '../pages/chatbox/speechservice';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    SpeechRecognitionService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
