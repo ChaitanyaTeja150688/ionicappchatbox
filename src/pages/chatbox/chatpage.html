@@ -1,9 +1,9 @@
  <ion-header>
       <ion-navbar>
-        <button ion-button menuToggle>
+        <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>Chat Box</ion-title>
+        </button> -->
+        <ion-title>Chat Bot</ion-title>
       </ion-navbar>
     </ion-header>
   <ion-content class="chat-connent">
@@ -57,7 +57,7 @@
         </div>
       </ion-toolbar>
       <ion-toolbar>
-        <input class="input-text" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />
+        <input class="input-text" [disabled]="disableInput" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />
         <ion-buttons end>
           <button ion-button icon-right color="royal" (click)="addTextButton()">
             Send

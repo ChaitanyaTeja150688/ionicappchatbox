@@ -27,7 +27,9 @@ export class ChatPage implements AfterViewChecked, OnInit{
   isPopulateDataAvaialble = false;
   prePopulateType = '';
   showSearchButton: boolean;
+  disableInput: boolean = false;
   ngOnInit(){
+    this.disableInput = false;
     this.sendMessage('Hi');
     this.getData(this.url + "/api/getVehicles").subscribe(data => { console.log('vehicles'); });
     this.getData(this.url + "/api/getCoverages").subscribe(data => { console.log('coverages'); });
@@ -42,30 +44,31 @@ export class ChatPage implements AfterViewChecked, OnInit{
   }
 
   activateSpeechSearchMovie(): void {
+    if(this.showSearchButton) {
     this.showSearchButton = false;
-
     this.speechRecognitionService.record()
-        .subscribe(
-        //listener
-        (value) => {
-            this.freeText = value;
-            this.showSearchButton = true;
-            console.log(value);
-        },
-        //errror
-        (err) => {
-            console.log(err);
-            if (err.error == "no-speech") {
-                console.log("--restatring service--");
-                this.activateSpeechSearchMovie();
-            }
-        },
-        //completion
-        () => {
-            this.showSearchButton = true;
-            console.log("--complete--");
-            this.activateSpeechSearchMovie();
-        });
+      .subscribe(
+      //listener
+      (value) => {
+          this.freeText = value;
+          this.showSearchButton = true;
+          console.log(value);
+      },
+      //errror
+      (err) => {
+          console.log(err);
+          if (err.error == "no-speech") {
+              console.log("--restatring service--");
+              this.activateSpeechSearchMovie();
+          }
+      },
+      //completion
+      () => {
+          this.showSearchButton = true;
+          console.log("--complete--");
+          this.activateSpeechSearchMovie();
+      });
+    }
 }
 
   addText($event){
@@ -83,8 +86,19 @@ export class ChatPage implements AfterViewChecked, OnInit{
 
   selectedCoverages: string = '';
   onSelection(event: any, item): void {
-    this.chatList.push({id:this.chatList.length+1, text:item.text,time: this.getTime(), sent:true});
-    this.sendMessage(item.text);
+    if(this.disableInput) {
+      if(item.text == 'Quit'){
+        window.alert('Thank you');
+      } else {
+        this.chatList = [];
+        this.selectionData = [];
+        this.showSearchButton = true;
+        this.ngOnInit();
+      }
+    } else {
+      this.chatList.push({id:this.chatList.length+1, text:item.text,time: this.getTime(), sent:true});
+      this.sendMessage(item.text);
+    }
   }
 
   createBody(){
@@ -181,6 +195,9 @@ export class ChatPage implements AfterViewChecked, OnInit{
             this.selectionData.push({type:'Quoted value', text: response.result.resolvedQuery});
           }
           else if (response.result.action == "emailConfirmation") {
+            this.disableInput = true;
+            let data = [{ text: "Start over new chat" }, { text: "Quit" }];
+            this.checkList(data, 'button');
             let subject = ('Coverage Details');
             let table = this.createBody();
             let table1 = this.createEmailBody();
