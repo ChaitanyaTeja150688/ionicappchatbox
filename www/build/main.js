@@ -138,6 +138,7 @@ var ChatPage = (function () {
         //listener
         function (value) {
             _this.freeText = value;
+            _this.showSearchButton = true;
             console.log(value);
         }, 
         //errror

@@ -49,6 +49,7 @@ export class ChatPage implements AfterViewChecked, OnInit{
         //listener
         (value) => {
             this.freeText = value;
+            this.showSearchButton = true;
             console.log(value);
         },
         //errror
