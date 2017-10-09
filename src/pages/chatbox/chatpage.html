@@ -59,19 +59,19 @@
       <ion-toolbar>
         <input class="input-text" [disabled]="disableInput" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />
         <ion-buttons end>
-          <button ion-button icon-right color="royal" (click)="addTextButton()">
-            Send
-            <ion-icon name="send"></ion-icon>
-          </button>
-          <!-- <button class="btn btn-info btn-fill btn-wd" name="btnActivateSpeechSearchMovie" id="btnActivateSpeechSearchMovie" (click)="activateSpeechSearchMovie()"
-          [disabled]="!showSearchButton">
-            Enable Speech Search
-          </button> -->
-          <button id="start_button" [disabled]="!showSearchButton" (click)="activateSpeechSearchMovie()" style="display: inline-block;">
+          <button ion-button icon-right color="royal" (click)="addTextButton()">Send<ion-icon name="send"></ion-icon></button>
+          <!-- <button id="start_button" [disabled]="!showSearchButton" (click)="activateSpeechSearchMovie()" style="display: inline-block;">
             <img alt="Start" id="start_img" *ngIf="!showSearchButton" src="https://www.google.com/intl/en/chrome/assets/common/images/content/mic-animate.gif">
             <img alt="Start" id="start_img" *ngIf="showSearchButton" src="https://www.google.com/intl/en/chrome/assets/common/images/content/mic.gif">
-          </button>
+          </button> -->
         </ion-buttons>
+        <ion-buttons end>
+            <!-- <button ion-button icon-right color="royal" (click)="addTextButton()">Send<ion-icon name="send"></ion-icon></button> -->
+            <button id="start_button" [disabled]="!showSearchButton" (click)="activateSpeechSearchMovie()" style="display: inline-block;background: white;">
+              <img alt="Start" id="start_img" *ngIf="!showSearchButton" src="https://www.google.com/intl/en/chrome/assets/common/images/content/mic-animate.gif">
+              <img alt="Start" id="start_img" *ngIf="showSearchButton" src="https://www.google.com/intl/en/chrome/assets/common/images/content/mic.gif">
+            </button>
+          </ion-buttons>
       </ion-toolbar>
     </ion-footer>
   
