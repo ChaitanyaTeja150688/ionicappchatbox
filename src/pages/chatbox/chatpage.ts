@@ -42,32 +42,33 @@ export class ChatPage implements AfterViewChecked, OnInit{
   ngOnDestroy() {
     this.speechRecognitionService.DestroySpeechObject();
   }
-
+  isEnable: boolean = false;
   activateSpeechSearchMovie(): void {
-    if(this.showSearchButton) {
-    this.showSearchButton = false;
-    this.speechRecognitionService.record()
-      .subscribe(
-      //listener
-      (value) => {
-          this.freeText = value;
-          this.showSearchButton = true;
-          console.log(value);
-      },
-      //errror
-      (err) => {
-          console.log(err);
-          if (err.error == "no-speech") {
-              console.log("--restatring service--");
-              this.activateSpeechSearchMovie();
-          }
-      },
-      //completion
-      () => {
-          this.showSearchButton = true;
-          console.log("--complete--");
-          this.activateSpeechSearchMovie();
-      });
+    if(this.showSearchButton && this.isEnable) {
+      this.showSearchButton = false;
+      this.speechRecognitionService.record()
+        .subscribe(
+        //listener
+        (value) => {
+            this.freeText = value;
+            this.showSearchButton = true;
+            console.log(value);
+        },
+        //errror
+        (err) => {
+            console.log(err);
+            if (err.error == "no-speech") {
+                console.log("--restatring service--");
+                this.activateSpeechSearchMovie();
+            }
+        },
+        //completion
+        () => {
+            this.showSearchButton = true;
+            console.log("--complete--");
+            this.activateSpeechSearchMovie();
+        }
+      );
     }
 }
 
@@ -151,6 +152,8 @@ export class ChatPage implements AfterViewChecked, OnInit{
   selectionType = '';
   sendMessage(message){
     this.showSearchButton = true;
+    this.isEnable = false;
+    this.speechRecognitionService.DestroySpeechObject();
     this.isPopulateDataAvaialble = false;
     this.prePopulateArray = [];
     this.selectionData.push({type:this.selectionType, text: message});
