@@ -18,7 +18,7 @@ export class ChatPage implements AfterViewChecked, OnInit{
     this.showSearchButton = true;
   }
   mandrillObject: any;
-  url = 'https://pacific-shelf-28291.herokuapp.com';
+  url = 'https://chatbot-apis.herokuapp.com';
   // url = 'http://ushydmehepatel7:8080';
   client: any;
   freeText: string = '';
