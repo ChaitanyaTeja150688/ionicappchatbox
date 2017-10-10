@@ -150,6 +150,7 @@ export class ChatPage implements AfterViewChecked, OnInit{
   selectionData = [];
   selectionType = '';
   sendMessage(message){
+    this.showSearchButton = true;
     this.isPopulateDataAvaialble = false;
     this.prePopulateArray = [];
     this.selectionData.push({type:this.selectionType, text: message});
