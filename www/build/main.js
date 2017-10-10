@@ -33,7 +33,7 @@ var ChatPage = (function () {
         this.navCtrl = navCtrl;
         this._http = _http;
         this.speechRecognitionService = speechRecognitionService;
-        this.url = 'https://pacific-shelf-28291.herokuapp.com';
+        this.url = 'https://chatbot-apis.herokuapp.com';
         this.freeText = '';
         this.chatList = [];
         this.prePopulateArray = [];
@@ -497,10 +497,9 @@ var SpeechRecognitionService = (function () {
 }());
 SpeechRecognitionService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */]])
 ], SpeechRecognitionService);
 
-var _a;
 //# sourceMappingURL=speechservice.js.map
 
 /***/ }),
