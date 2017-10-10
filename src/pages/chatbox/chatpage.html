@@ -59,8 +59,8 @@
       <ion-toolbar>
         <input class="input-text" [disabled]="disableInput" type="text"  placeholder="Type your message" (keydown)="addText($event)" [(ngModel)]="freeText" />
         <ion-buttons end>
-          <button style="border:1px solid black;" ion-button icon-right color="royal" (click)="addTextButton()">Send<ion-icon name="send"></ion-icon></button>
-          <button id="start_button" [disabled]="!showSearchButton" (click)="isEnable = true;activateSpeechSearchMovie();" style="display: inline-block;background: white;border: 1px solid black;">
+          <button ion-button icon-right color="royal" (click)="addTextButton()">Send<ion-icon name="send"></ion-icon></button>
+          <button id="start_button" [disabled]="!showSearchButton" (click)="isEnable = true;activateSpeechSearchMovie();" style="display: inline-block;background: white;">
               <img alt="Start" id="start_img" *ngIf="!showSearchButton" src="https://www.google.com/intl/en/chrome/assets/common/images/content/mic-animate.gif">
               <img alt="Start" id="start_img" *ngIf="showSearchButton" src="https://www.google.com/intl/en/chrome/assets/common/images/content/mic.gif">
           </button>
